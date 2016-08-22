@@ -16,6 +16,22 @@ const API ={
       })
     })
     .catch(err =>console.log(err));
+  },
+  quote(search){
+     lookUp(search){
+    console.log("inside lookup");
+    axios.get(`api/search/${search}`)
+    .then(response =>{
+      //let lookupData = 
+      return response.data;
+    })
+    .then(results =>{
+      AppDispatcher.dispatch({
+        type:'RECEIVE_RESULTS',
+        results
+      })
+    })
+    .catch(err =>console.log(err));
   }
 
 }
